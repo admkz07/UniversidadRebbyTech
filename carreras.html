@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Universidad Ejemplo</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f7f7f7;
+        }
+        header {
+            background-color: #007BFF;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 36px;
+        }
+        h2 {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #007BFF;
+            color: #fff;
+        }
+        #calculadora {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #resultado {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Universidad Rebby</h1>
+        <a href="PáginaPrincipal.html">🏠Home</a>
+    </header>
+    
+    <section>
+        <h2>Carreras y Materias</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Carrera</th>
+                    <th>Descripción</th>
+                    <th>Costo por Semestre</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Ingeniería Informática</td>
+                    <td>Esta carrera se enfoca en la programación y desarrollo de software.</td>
+                    <td>$5,000</td>
+                </tr>
+                <tr>
+                    <td>Administración de Empresas</td>
+                    <td>Esta carrera se centra en la gestión y administración de empresas.</td>
+                    <td>$4,500</td>
+                </tr>
+                <tr>
+                    <td>Ingeniería Química</td>
+                    <td>Trabajan en los procesos de transformación de sustancias para la industria química o física</td>
+                    <td>$5,500</td>
+                </tr>
+                <tr>
+                    <td>Ingeniería en Mecatrónica</td>
+                    <td>Une conocimientos de mecánica, electrónica, informática y los sistemas de control.</td>
+                    <td>$3,500</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    
+    <section id="calculadora">
+        <h2>Calculadora de Costo de Matrícula</h2>
+        <p>Seleccione una carrera para calcular el costo de matrícula:</p>
+        <select id="carrera">
+            <option value="5000">Ingeniería Informática</option>
+            <option value="4500">Administración de Empresas</option>
+            <option value="5500">Ingeniería Química</option>
+            <option value="3500">Ingeniería en Mecatrónica</option>
+        </select>
+        <p>Ingrese el número de semestres:</p>
+        <input type="number" id="numSemestres" placeholder="Número de semestres">
+        <button onclick="calcularCosto()">Calcular</button>
+        <p id="resultado">El costo total de la matrícula es: $0</p>
+        
+            
+
+    </section>
+    <script>
+        function calcularCosto() {
+            const costoPorSemestre = parseFloat(document.getElementById("carrera").value);
+            const numSemestres = parseInt(document.getElementById("numSemestres").value);
+    
+            if (isNaN(costoPorSemestre) || isNaN(numSemestres)) {
+                alert("Por favor, ingrese valores válidos para los campos.");
+                return;
+            }
+    
+            const costoTotal = costoPorSemestre * numSemestres;
+            document.getElementById("resultado").textContent = `El costo total de la matrícula es: $${costoTotal}`;
+        }
+    </script>
+    
